@@ -32,6 +32,7 @@ const loginValidation = [
 
   body("password")
     .notEmpty()
+    .withMessage("Password is required")
     .withMessage("Password is required"),
 ];
 

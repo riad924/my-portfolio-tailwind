@@ -11,21 +11,13 @@ const updateProfileValidation = [
     .optional()
     .isURL()
     .withMessage("Avatar must be a valid URL"),
-];
 
-const updatePasswordValidation = [
-  body("currentPassword")
-    .notEmpty()
-    .withMessage("Current password is required"),
-
-  body("newPassword")
-    .notEmpty()
-    .withMessage("New password is required")
+  body("password")
+    .optional()
     .isLength({ min: 6 })
-    .withMessage("New password must be at least 6 characters"),
+    .withMessage("Password must be at least 6 characters"),
 ];
 
 module.exports = {
   updateProfileValidation,
-  updatePasswordValidation,
 };

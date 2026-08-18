@@ -23,6 +23,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "Password is required"],
       minlength: 6,
+      select: false,
     },
 
     role: {
@@ -42,21 +43,15 @@ const userSchema = new mongoose.Schema(
 );
 
 // Password hash করার জন্য
-userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    return next();
-  }
-
-  const salt = await bcrypt.genSalt(10);
-
-  this.password = await bcrypt.hash(this.password, salt);
-
-  next();
+userSchema.pre("save", async function () {
+  if (!this.isModified("password")) return;
+  
+  this.password = await bcrypt.hash(this.password, 10);
 });
 
 // Password compare করার জন্য
-userSchema.methods.comparePassword = async function (password) {
-  return await bcrypt.compare(password, this.password);
+userSchema.methods.comparePassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
 };
 
 const User = mongoose.model("User", userSchema);
