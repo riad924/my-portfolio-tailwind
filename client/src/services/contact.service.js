@@ -1,4 +1,4 @@
-import { apiRequest } from "./api";
+import api from "./api";
 
 export const sendContactMessage = async (contactData) => {
   return apiRequest("/contact", {

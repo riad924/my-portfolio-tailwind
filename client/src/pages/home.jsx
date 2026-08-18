@@ -7,6 +7,7 @@ import Services from "../components/sections/Services";
 import Projects from "../components/sections/Projects";
 import Contact from "../components/sections/Contact";
 
+
 function App() {
   return (
     <div className="min-h-screen flex flex-col">

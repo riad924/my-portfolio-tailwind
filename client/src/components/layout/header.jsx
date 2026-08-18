@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { navigationLinks } from "../../utils/navigation";
 
 function Header() {
@@ -22,6 +23,7 @@ function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden px-4 md:block">
           <ul className="flex space-x-6">
+
             <li>
               <a
                 href="#home"
@@ -57,24 +59,29 @@ function Header() {
                 Contact
               </a>
             </li>
+
           </ul>
         </nav>
 
         {/* Desktop Buttons */}
         <div className="hidden items-center gap-2 md:flex">
-          <button
-            type="button"
+
+          {/* Sign Up */}
+          <Link
+            to="/register"
             className="rounded-lg border bg-orange-700 px-4 py-2 text-lg text-white shadow-xl hover:bg-orange-800"
           >
             Sign Up
-          </button>
+          </Link>
 
-          <button
-            type="button"
+          {/* Login */}
+          <Link
+            to="/login"
             className="rounded-lg border bg-blue-700 px-4 py-2 text-lg text-white shadow-xl hover:bg-blue-800"
           >
             Login
-          </button>
+          </Link>
+
         </div>
 
         {/* Mobile Menu Button */}
@@ -96,6 +103,8 @@ function Header() {
           className="space-y-6 px-6 py-8 md:hidden"
         >
           <ul className="space-y-4">
+
+            {/* Home */}
             <li>
               <a
                 href="#home"
@@ -106,6 +115,7 @@ function Header() {
               </a>
             </li>
 
+            {/* About */}
             <li>
               <a
                 href="#about"
@@ -116,6 +126,7 @@ function Header() {
               </a>
             </li>
 
+            {/* Services */}
             <li>
               <a
                 href="#services"
@@ -126,6 +137,7 @@ function Header() {
               </a>
             </li>
 
+            {/* Contact */}
             <li>
               <a
                 href="#contact"
@@ -136,23 +148,28 @@ function Header() {
               </a>
             </li>
 
+            {/* Mobile Sign Up */}
             <li>
-              <button
-                type="button"
-                className="mt-2 w-full rounded-lg border bg-orange-700 px-4 py-2 text-lg text-white shadow-xl"
+              <Link
+                to="/register"
+                onClick={closeMenu}
+                className="mt-2 block w-full rounded-lg border bg-orange-700 px-4 py-2 text-center text-lg text-white shadow-xl hover:bg-orange-800"
               >
                 Sign Up
-              </button>
+              </Link>
             </li>
 
+            {/* Mobile Login */}
             <li>
-              <button
-                type="button"
-                className="w-full rounded-lg border bg-blue-700 px-4 py-2 text-lg text-white shadow-xl"
+              <Link
+                to="/login"
+                onClick={closeMenu}
+                className="block w-full rounded-lg border bg-blue-700 px-4 py-2 text-center text-lg text-white shadow-xl hover:bg-blue-800"
               >
                 Login
-              </button>
+              </Link>
             </li>
+
           </ul>
         </div>
       )}
