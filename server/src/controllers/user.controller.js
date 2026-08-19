@@ -82,7 +82,7 @@ const updatePassword = async (req, res) => {
       });
     }
 
-    const user = await User.findById(req.user.id);
+   const user = await User.findById(req.user.id).select("+password");
 
     if (!user) {
       return res.status(404).json({
