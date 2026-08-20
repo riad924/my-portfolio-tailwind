@@ -15,7 +15,6 @@ app.use(cors());
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/users", userRoutes);
 
 // Health check
 app.get("/", (req, res) => {

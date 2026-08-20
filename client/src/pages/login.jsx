@@ -25,7 +25,7 @@ function Login() {
       alert("Login successful!");
 
       // পরে এখানে token save করবে
-      // localStorage.setItem("token", data.token);
+       localStorage.setItem("token", data.token);
     } catch (error) {
       console.error(error.response?.data || error.message);
 
